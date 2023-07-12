@@ -14,7 +14,7 @@ SECRET_KEY = "django-insecure-to%@2q-owuqc18*c56g6k*1ds=q%h#_y-ir68d+=i-cu7aumlh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["weekendbites.kingship.info"]
+ALLOWED_HOSTS = ["weekendbites.kingship.info", 'localhost']
 
 X_FRAME_OPTIONS = "ALLOW-FROM=weekendbites.kingship.info"
 
