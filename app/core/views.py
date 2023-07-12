@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import OrderCreateForm
 from .models import Category, Order, Product
@@ -35,10 +36,7 @@ def order_create_view(request, product_id):
     )
 
 
-# game = Game.objects.get(id=1) # just an example
-#     data = {'id': game.id, 'position': game.position}
-#     form = UserQueueForm(initial=data)
-class OrderListView(ListView):
+class OrderListView(LoginRequiredMixin,ListView):
     model = Order
 
     def get_queryset(self):
@@ -52,7 +50,7 @@ class OrderListView(ListView):
             return Order.objects.filter(user=self.request.user)
 
 
-class OrderDetailView(DetailView):
+class OrderDetailView(LoginRequiredMixin,DetailView):
     model = Order
 
 
