@@ -1,0 +1,22 @@
+gros islet - north
+gros islet - south
+castries - north
+castries - east
+castries - west
+castries - south
+anse la raye - north
+anse la raye - south
+canaries - north
+canaries - south
+soufriere - north
+soufriere - south
+choisuel - north
+choisuel - south
+laborie - north
+laborie - south
+vieux fort - north
+vieux fort - south
+micoud - north
+micoud - south
+dennery - north
+dennery - south
