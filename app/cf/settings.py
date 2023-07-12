@@ -193,7 +193,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
 # ACCOUNT_ADAPTER = "apps.users.new_user_adapater.NoNewUsersAccountAdapter"
 
-# LOGIN_REDIRECT_URL = "profile-redirect"
+LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = "/accounts/login/"
 

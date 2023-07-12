@@ -11,4 +11,4 @@ class OrderCreateForm(forms.ModelForm):
             "qty",
             "user",
         )
-        widgets = {"user": forms.HiddenInput()}
+        widgets = {"user": forms.HiddenInput(), 'product': forms.HiddenInput()}

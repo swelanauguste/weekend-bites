@@ -7,6 +7,7 @@ urlpatterns = [
     path("", include("pwa.urls")),
     path("", include("core.urls")),
     path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
 ]
 
 if settings.DEBUG:

@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block head_title %}
-Orders
+Orders -
 {% endblock head_title %}
 
+{% load humanize %}
 
 {% block content %}
 <div class="container my-5">
-    <div class="col-lg-4 mx-auto my-5">
+    <div class="col-lg-5 mx-auto my-5">
         <form action=""
             method="get">
             <input type="search"
@@ -15,27 +16,23 @@ Orders
                 class="form-control rounded-pill bg-dark bg-opacity-50 text-light">
         </form>
     </div>
-    {% for order in object_list %}
-    <a class="text-decoration-none text-white"
-        href="{{order.get_absolute_url}}">
-        <div class="card rounded-4 mb-2 mx-auto col-lg-2 bg-dark text-light">
-            {% if order.product.image %}
-            <img src="{{order.product.image.url}}"
-                class="card-img-top rounded-4 rounded-bottom-0"
-                alt="">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{order.product|title}}</h5>
-                <span class="card-text">${{order.product.price}} * {{order.qty}}</span>
-                <br>
-                <span class="card-text">${{order.get_total_price}}
-                </span>
-                <br><hr>
-                <span class="small card-text">{{order.created_at|date:"d M Y"}}</span>
-            </div>
-        </div>
-    </a>
-    {% endfor %}
+    <div class="col-lg-5 mx-auto table-responsive">
+        <table class="table table-sm small table-dark rounded-4 px-5">
+            <tbody>
+                {% for order in object_list %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{order.product|title}}</td>
+                    <td>${{order.product.price}}</td>
+                    <td>x{{order.qty}}</td>
+                    <td>${{order.get_total_price}}</td>
+                    <td>{{order.created_at|naturaltime}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
+
 
 {% endblock content %}

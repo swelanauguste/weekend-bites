@@ -6,12 +6,15 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="col-lg-4 mx-auto my-3">
-        <input type="search"
-            name="products"
-            class="form-control rounded-pill">
+    <div class="col-lg-5 mx-auto my-5">
+        <form action=""
+            method="get">
+            <input type="search"
+                name="products"
+                class="form-control rounded-pill bg-dark bg-opacity-50 text-light py-3">
+        </form>
     </div>
-    <div class="card rounded-4 mb-2 mx-auto col-lg-4 bg-dark text-light shadow-lg">
+    <div class="card rounded-4 mb-2 mx-auto col-lg-5 bg-dark text-light shadow-lg">
         {% if object.image %}
         <img src="{{object.image.url}}"
             class="card-img-top rounded-4 rounded-bottom-0"
@@ -19,14 +22,14 @@
         {% endif %}
         <div class="card-body">
             <a class="text-success"
-                href=""><span title=""
-                    class="material-symbols-outlined float-end">
+                href="{% url 'order-create' object.id %}"><span title=""
+                    class="material-symbols-outlined float-end fs-1 mt-3">
                     add_shopping_cart
                 </span></a>
-            <h5 class="card-title">{{object.name}}</h5>
+            <h5 class="card-title">{{object.name|title}}</h5>
             <p class="h4 card-text">${{object.price}}
             </p>
-            <p class="card-text small">Ingredients: {{object.desc}}</p>
+            <p class="card-text small">Ingredients: {{object.desc|default:"..."}}</p>
         </div>
     </div>
 </div>
