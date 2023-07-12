@@ -34,7 +34,7 @@ class ProductListView(ListView):
                 is_available=True,
             ).distinct()
         else:
-            return Product.objects.all(is_available=True)
+            return Product.objects.filter(is_available=True)
 
 
 class ProductDetailView(DetailView):
